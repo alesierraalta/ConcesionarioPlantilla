@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concesionario Premium - Gana Premios Todos los Días</title>
+    <meta name="description" content="Gana premios diarios al interactuar con nuestro concesionario. Rifas diarias de vehículos, accesorios y sorpresas. Participa en segundos.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggMTJIMjRWMjBIOFYxMloiIGZpbGw9IiMxZTQwYWYiLz4KPGNpcmNsZSBjeD0iMTAiIGN5PSIyMiIgcj0iMiIgZmlsbD0iIzM0Yzc1OSIvPgo8Y2lyY2xlIGN4PSIyMiIgY3k9IjIyIiByPSIyIiBmaWxsPSIjMzRjNzU5Ii8+Cjwvc3ZnPgo=">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary-blue: #1e40af;
+            --primary-orange: #f59e0b;
+            --success-green: #10b981;
+            --danger-red: #ef4444;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #eff6ff;
+            --border-light: #e5e7eb;
+            --border-medium: #d1d5db;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --border-radius: 12px;
+            --border-radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-secondary);
+            overflow-x: hidden;
+        }
+
+        /* Utility classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-1 { margin-bottom: 0.25rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-3 { margin-bottom: 0.75rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-12 { margin-bottom: 3rem; }
+
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .mt-8 { margin-top: 2rem; }
+
+        /* Typography */
+        .heading-xl {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .heading-lg {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .heading-md {
+            font-size: 1.875rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .heading-sm {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        .text-base {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        /* Color utilities */
+        .text-primary { color: var(--text-primary); }
+        .text-secondary { color: var(--text-secondary); }
+        .text-light { color: var(--text-light); }
+        .text-blue { color: var(--primary-blue); }
+        .text-orange { color: var(--primary-orange); }
+        .text-green { color: var(--success-green); }
+        .text-white { color: white; }
+
+        /* Button styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            line-height: 1.5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1d4ed8 100%);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, #d97706 100%);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: white;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            border-radius: var(--border-radius-lg);
+        }
+
+        /* Card styles */
+        .card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-accent) 0%, white 100%);
+            padding: 8rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e0f2fe' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .countdown-container {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            border: 3px solid var(--primary-orange);
+            position: relative;
+        }
+
+        .countdown-container::before {
+            content: '🎁';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-orange);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .countdown-item {
+            text-align: center;
+            background: var(--bg-accent);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            min-width: 80px;
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        /* How it works section */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-arrow {
+            position: absolute;
+            top: 30px;
+            right: -1rem;
+            color: var(--primary-orange);
+            font-size: 2rem;
+            z-index: 1;
+        }
+
+        /* Winners feed */
+        .winners-feed {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .winner-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-light);
+            animation: slideInRight 0.5s ease-out;
+        }
+
+        .winner-item:last-child {
+            border-bottom: none;
+        }
+
+        .winner-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--success-green) 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .winner-info {
+            flex: 1;
+        }
+
+        .winner-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .winner-prize {
+            color: var(--success-green);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .winner-time {
+            color: var(--text-light);
+            font-size: 0.75rem;
+        }
+
+        /* Transparency section */
+        .transparency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .transparency-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .transparency-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-accent);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Prize showcase */
+        .prize-showcase {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1d4ed8 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prize-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-11.046-8.954-20-20-20v20h20z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .prize-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .mystery-prize {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-lg);
+            padding: 3rem 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .mystery-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Multipliers section */
+        .multipliers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .multiplier-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            border-top: 4px solid var(--primary-orange);
+        }
+
+        .multiplier-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-accent);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            background: var(--border-light);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--success-green) 0%, var(--primary-orange) 100%);
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        /* Dealership section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-accent);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, #d97706 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-16.569-13.431-30-30-30v30h30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-orange);
+            border: none;
+        }
+
+        .btn-white:hover {
+            background: var(--bg-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-orange);
+        }
+
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        /* Animations */
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translate3d(0, 0, 0);
+            }
+            40%, 43% {
+                transform: translate3d(0, -30px, 0);
+            }
+            70% {
+                transform: translate3d(0, -15px, 0);
+            }
+            90% {
+                transform: translate3d(0, -4px, 0);
+            }
+        }
+
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 6rem 0 4rem;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .heading-xl {
+                font-size: 2.5rem;
+            }
+
+            .heading-lg {
+                font-size: 2rem;
+            }
+
+            .countdown {
+                gap: 0.5rem;
+            }
+
+            .countdown-item {
+                min-width: 60px;
+                padding: 0.75rem 0.5rem;
+            }
+
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step-arrow {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .heading-xl {
+                font-size: 2rem;
+            }
+
+            .countdown-container {
+                padding: 1.5rem;
+            }
+
+            .card-body {
+                padding: 1rem;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles for keyboard navigation */
+        .btn:focus,
+        a:focus {
+            outline: 2px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+                --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+                --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3);
+                --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🚗</div>
+                <span>AutoPremium</span>
+            </a>
+            <a href="#participar" class="btn btn-primary">Participar Ahora</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-grid">
+                    <div>
+                        <h1 class="heading-xl mb-4">
+                            <span class="text-blue">Gana premios</span><br>
+                            <span class="text-orange">todos los días</span><br>
+                            con nosotros
+                        </h1>
+                        <p class="text-lg text-secondary mb-6">
+                            Rifas diarias de vehículos, accesorios y sorpresas increíbles. 
+                            Participa en segundos y multiplica tus oportunidades de ganar.
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="#participar" class="btn btn-primary btn-lg">
+                                🎁 Entrar a la Rifa de Hoy
+                            </a>
+                            <a href="#como-funciona" class="btn btn-outline btn-lg">
+                                ¿Cómo Funciona?
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="countdown-container">
+                        <h3 class="heading-sm mb-2 text-orange">Próximo Sorteo</h3>
+                        <div class="countdown" id="countdown">
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="hours">23</span>
+                                <span class="countdown-label">Horas</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="minutes">45</span>
+                                <span class="countdown-label">Min</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="seconds">12</span>
+                                <span class="countdown-label">Seg</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-secondary">¡Solo quedan <strong class="text-orange">47 entradas</strong> disponibles!</p>
+                        <a href="#participar" class="btn btn-secondary mt-4 pulse">
+                            ⚡ Participar Ahora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="como-funciona" class="section">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2 class="heading-lg mb-4">¿Cómo Funciona?</h2>
+                <p class="text-lg text-secondary">Tres pasos simples para empezar a ganar</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-arrow">→</div>
+                    <h3 class="heading-sm mb-3">Regístrate Gratis</h3>
+                    <p class="text-secondary">
+                        Deja tu contacto en menos de 30 segundos. 
+                        Sin complicaciones, sin costos ocultos.
+                    </p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-arrow">→</div>
+                    <h3 class="heading-sm mb-3">Obtén tu Entrada</h3>
+                    <p class="text-secondary">
+                        Cada visita, prueba de manejo o referido te da 
+                        una entrada automática al sorteo diario.
+                    </p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="heading-sm mb-3">¡Gana Premios!</h3>
+                    <p class="text-secondary">
+                        Mira el sorteo en vivo cada día a las 8 PM o 
+                        recibe notificación instantánea si ganas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Winners Feed Section -->
+    <section class="section bg-primary">
+        <div class="container">
+            <div class="text-center mb-8">
+                <h2 class="heading-lg mb-4">Ganadores Recientes</h2>
+                <p class="text-lg text-secondary">Personas reales ganando premios reales</p>
+            </div>
+            
+            <div class="winners-feed" id="winners-feed">
+                <!-- Winners will be populated by JavaScript -->
+            </div>
+            
+            <div class="text-center mt-6">
+                <p class="text-sm text-secondary">
+                    <span class="text-green">✓ Verificado</span> • 
+                    Todos los ganadores son contactados en menos de 24 horas
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2 class="heading-lg mb-4">100% Transparente</h2>
+                <p class="text-lg text-secondary">Así garantizamos que todo sea justo y legal</p>
+            </div>
+            
+            <div class="transparency-grid">
+                <div class="transparency-item">
+                    <div class="transparency-icon">🔍</div>
+                    <div>
+                        <h3 class="heading-sm mb-2">Sorteos Verificables</h3>
+                        <p class="text-secondary">
+                            Cada sorteo es grabado en vivo y puede ser 
+                            verificado por cualquier participante.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="transparency-item">
+                    <div class="transparency-icon">📋</div>
+                    <div>
+                        <h3 class="heading-sm mb-2">Reglas Claras</h3>
+                        <p class="text-secondary">
+                            Sin letra chica. Todas las reglas están 
+                            disponibles públicamente y son fáciles de entender.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="transparency-item">
+                    <div class="transparency-icon">🔒</div>
+                    <div>
+                        <h3 class="heading-sm mb-2">Datos Protegidos</h3>
+                        <p class="text-secondary">
+                            Tu información personal está protegida según 
+                            las leyes de privacidad más estrictas.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="transparency-item">
+                    <div class="transparency-icon">⚖️</div>
+                    <div>
+                        <h3 class="heading-sm mb-2">Legalmente Válido</h3>
+                        <p class="text-secondary">
+                            Todos nuestros sorteos cumplen con la 
+                            legislación local y están debidamente registrados.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prize Showcase Section -->
+    <section class="prize-showcase section">
+        <div class="container">
+            <div class="prize-content text-center">
+                <h2 class="heading-lg mb-4">Premio Secreto de Mañana</h2>
+                <p class="text-lg mb-8">Regístrate hoy para descubrir qué increíble sorpresa te espera</p>
+                
+                <div class="mystery-prize">
+                    <span class="mystery-icon bounce">🎁</span>
+                    <h3 class="heading-md mb-4">¿Será tu día de suerte?</h3>
+                    <p class="mb-6">
+                        El premio de mañana podría ser desde accesorios premium 
+                        hasta el vehículo de tus sueños. ¡Solo hay una forma de saberlo!
+                    </p>
+                    <a href="#participar" class="btn btn-white btn-lg">
+                        🔓 Descubrir Premio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multipliers Section -->
+    <section class="section bg-secondary">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2 class="heading-lg mb-4">Multiplica tus Oportunidades</h2>
+                <p class="text-lg text-secondary">Más participación = más posibilidades de ganar</p>
+            </div>
+            
+            <div class="multipliers-grid">
+                <div class="multiplier-card">
+                    <div class="multiplier-icon">👥</div>
+                    <h3 class="heading-sm mb-3">Refiere Amigos</h3>
+                    <p class="text-secondary mb-4">
+                        Por cada amigo que refiera, obtienes 2 entradas extra 
+                        para el sorteo de esa semana.
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                    <p class="text-sm text-secondary">Progreso: 3 de 5 referidos</p>
+                </div>
+                
+                <div class="multiplier-card">
+                    <div class="multiplier-icon">📅</div>
+                    <h3 class="heading-sm mb-3">Visitas Diarias</h3>
+                    <p class="text-secondary mb-4">
+                        Visita nuestro concesionario 5 días seguidos y 
+                        gana una entrada premium con doble probabilidad.
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                    <p class="text-sm text-secondary">Racha actual: 4 días</p>
+                </div>
+                
+                <div class="multiplier-card">
+                    <div class="multiplier-icon">📱</div>
+                    <h3 class="heading-sm mb-3">Comparte en Redes</h3>
+                    <p class="text-secondary mb-4">
+                        Comparte nuestros sorteos en tus redes sociales 
+                        y obtén entradas adicionales automáticamente.
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%"></div>
+                    </div>
+                    <p class="text-sm text-secondary">2 compartidos esta semana</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dealership Features Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2 class="heading-lg mb-4">¿Por Qué Elegirnos?</h2>
+                <p class="text-lg text-secondary">Más que un concesionario, somos tu socio en movilidad</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🏆</div>
+                    <div>
+                        <h3 class="heading-sm mb-2">15 Años de Experiencia</h3>
+                        <p class="text-secondary">Líderes en el mercado local con miles de clientes satisfechos.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🚗</div>
+                    <div>
+                        <h3 class="heading-sm mb-2">500+ Vehículos</h3>
+                        <p class="text-secondary">La mayor variedad de carros y motos nuevos y seminuevos.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🔧</div>
+                    <div>
+                        <h3 class="heading-sm mb-2">Servicio Integral</h3>
+                        <p class="text-secondary">Taller especializado, repuestos originales y garantía extendida.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">💳</div>
+                    <div>
+                        <h3 class="heading-sm mb-2">Financiamiento Fácil</h3>
+                        <p class="text-secondary">Créditos desde 0% de interés con aprobación inmediata.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🎁</div>
+                    <div>
+                        <h3 class="heading-sm mb-2">Rifas Exclusivas</h3>
+                        <p class="text-secondary">El único concesionario que te premia por elegirnos.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">⭐</div>
+                    <div>
+                        <h3 class="heading-sm mb-2">5 Estrellas</h3>
+                        <p class="text-secondary">Calificación promedio de nuestros clientes en todas las plataformas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="participar" class="cta-section section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="heading-lg mb-4">¡Tu Premio te Está Esperando!</h2>
+                <p class="text-lg mb-8">
+                    Únete a los miles de personas que ya están participando. 
+                    El próximo ganador podrías ser tú.
+                </p>
+                
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-white btn-lg" onclick="openRegistrationModal()">
+                        🎁 Participar en la Rifa de Hoy
+                    </a>
+                    <a href="#ganadores" class="btn btn-outline btn-lg" style="border-color: white; color: white;">
+                        👑 Ver Ganador de Hoy
+                    </a>
+                </div>
+                
+                <p class="text-sm mt-6" style="opacity: 0.9;">
+                    También puedes suscribirte para recibir alertas de nuevos sorteos y rifas especiales
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AutoPremium</h3>
+                    <p class="text-light mb-4">
+                        El concesionario que te premia por elegirnos. 
+                        Vehículos de calidad y premios increíbles.
+                    </p>
+                    <div>
+                        <p>📍 Av. Principal 123, Ciudad</p>
+                        <p>📞 +1 (555) 123-4567</p>
+                        <p>✉️ info@autopremium.com</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#como-funciona">¿Cómo Funciona?</a></li>
+                        <li><a href="#ganadores">Ganadores</a></li>
+                        <li><a href="#vehiculos">Vehículos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#terminos">Términos y Condiciones</a></li>
+                        <li><a href="#privacidad">Política de Privacidad</a></li>
+                        <li><a href="#reglas">Reglas de Sorteos</a></li>
+                        <li><a href="#responsable">Juego Responsable</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <p class="text-light mb-4">
+                        Mantente al día con nuestros sorteos y promociones especiales.
+                    </p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="font-size: 1.5rem;">📘</a>
+                        <a href="#" style="font-size: 1.5rem;">📷</a>
+                        <a href="#" style="font-size: 1.5rem;">🐦</a>
+                        <a href="#" style="font-size: 1.5rem;">📺</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AutoPremium. Todos los derechos reservados. Sorteos autorizados bajo licencia oficial.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Registration Modal (hidden by default) -->
+    <div id="registration-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center;">
+        <div style="background: white; padding: 2rem; border-radius: 16px; max-width: 500px; width: 90%; max-height: 90vh; overflow-y: auto;">
+            <h3 class="heading-md mb-4 text-center">🎁 ¡Participa en la Rifa de Hoy!</h3>
+            <form id="registration-form">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Nombre Completo</label>
+                    <input type="text" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-light); border-radius: 8px; font-size: 1rem;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Email</label>
+                    <input type="email" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-light); border-radius: 8px; font-size: 1rem;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Teléfono</label>
+                    <input type="tel" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-light); border-radius: 8px; font-size: 1rem;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+                        <input type="checkbox" required>
+                        Acepto los <a href="#terminos" style="color: var(--primary-blue);">términos y condiciones</a> y las <a href="#reglas" style="color: var(--primary-blue);">reglas del sorteo</a>
+                    </label>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <button type="submit" class="btn btn-primary" style="flex: 1;">
+                        ✨ Confirmar Participación
+                    </button>
+                    <button type="button" onclick="closeRegistrationModal()" class="btn btn-outline" style="flex: 1;">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(20, 0, 0, 0); // 8 PM tomorrow
+            
+            const diff = tomorrow - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Winners Feed Data
+        const winners = [
+            { name: 'María González', prize: 'iPhone 15 Pro', time: '2 min ago', avatar: 'M' },
+            { name: 'Carlos Rodríguez', prize: 'Casco Premium', time: '15 min ago', avatar: 'C' },
+            { name: 'Ana Martínez', prize: 'Accesorios Moto', time: '32 min ago', avatar: 'A' },
+            { name: 'Luis Fernández', prize: 'Kit de Herramientas', time: '1 hora ago', avatar: 'L' },
+            { name: 'Sofia Herrera', prize: 'Tarjeta Regalo $500', time: '2 horas ago', avatar: 'S' },
+            { name: 'Diego Morales', prize: 'Seguro Gratis 6 meses', time: '3 horas ago', avatar: 'D' },
+            { name: 'Carmen Silva', prize: 'Mantenimiento Gratis', time: '4 horas ago', avatar: 'C' },
+            { name: 'Roberto Jiménez', prize: 'Llantas Premium', time: '5 horas ago', avatar: 'R' }
+        ];
+
+        // Populate Winners Feed
+        function populateWinnersFeed() {
+            const feed = document.getElementById('winners-feed');
+            feed.innerHTML = winners.map(winner => `
+                <div class="winner-item">
+                    <div class="winner-avatar">${winner.avatar}</div>
+                    <div class="winner-info">
+                        <div class="winner-name">${winner.name}</div>
+                        <div class="winner-prize">🏆 ${winner.prize}</div>
+                        <div class="winner-time">${winner.time}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Add new winner periodically
+        function addRandomWinner() {
+            const names = ['Patricia López', 'Miguel Torres', 'Elena Vargas', 'Fernando Castro', 'Lucia Mendoza'];
+            const prizes = ['Descuento 20%', 'Kit Limpieza', 'Revisión Gratis', 'Combustible $100', 'Accesorio Premium'];
+            
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            const randomPrize = prizes[Math.floor(Math.random() * prizes.length)];
+            const avatar = randomName.charAt(0);
+            
+            winners.unshift({
+                name: randomName,
+                prize: randomPrize,
+                time: 'Ahora mismo',
+                avatar: avatar
+            });
+            
+            if (winners.length > 8) {
+                winners.pop();
+            }
+            
+            populateWinnersFeed();
+        }
+
+        // Initialize winners feed
+        populateWinnersFeed();
+
+        // Add new winner every 30 seconds
+        setInterval(addRandomWinner, 30000);
+
+        // Registration Modal Functions
+        function openRegistrationModal() {
+            document.getElementById('registration-modal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRegistrationModal() {
+            document.getElementById('registration-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Handle registration form submission
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '⏳ Procesando...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('🎉 ¡Felicidades! Te has registrado exitosamente para el sorteo de hoy. Recibirás un email de confirmación en breve.');
+                closeRegistrationModal();
+                
+                // Reset form
+                e.target.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('registration-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeRegistrationModal();
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'white';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Animate progress bars when they come into view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressFill = entry.target.querySelector('.progress-fill');
+                    if (progressFill) {
+                        const width = progressFill.style.width;
+                        progressFill.style.width = '0%';
+                        setTimeout(() => {
+                            progressFill.style.width = width;
+                        }, 200);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.multiplier-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Add loading states to buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.href && this.href.includes('#')) {
+                    return; // Skip for anchor links
+                }
+                
+                // Add loading state for external links or actions
+                const originalContent = this.innerHTML;
+                this.innerHTML = '⏳ Cargando...';
+                this.style.pointerEvents = 'none';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalContent;
+                    this.style.pointerEvents = 'auto';
+                }, 1500);
+            });
+        });
+
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            // Close modal with Escape key
+            if (e.key === 'Escape' && document.getElementById('registration-modal').style.display === 'flex') {
+                closeRegistrationModal();
+            }
+        });
+
+        // Touch gesture support for mobile
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartY = e.changedTouches[0].screenY;
+        });
+
+        document.addEventListener('touchend', function(e) {
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartY - touchEndY;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe up - could trigger some action
+                    console.log('Swipe up detected');
+                } else {
+                    // Swipe down - could trigger some action
+                    console.log('Swipe down detected');
+                }
+            }
+        }
+
+        // Performance optimization: Lazy load images when they come into view
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+
+        // Analytics tracking (placeholder)
+        function trackEvent(eventName, properties = {}) {
+            console.log('Analytics Event:', eventName, properties);
+            // Here you would integrate with your analytics service
+            // Examples: Google Analytics, Mixpanel, etc.
+        }
+
+        // Track important user interactions
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('.btn-primary')) {
+                trackEvent('cta_clicked', { button_text: e.target.textContent.trim() });
+            }
+            if (e.target.matches('.btn-secondary')) {
+                trackEvent('secondary_cta_clicked', { button_text: e.target.textContent.trim() });
+            }
+        });
+
+        // Track form submissions
+        document.getElementById('registration-form').addEventListener('submit', function() {
+            trackEvent('registration_submitted');
+        });
+
+        // Track scroll depth
+        let maxScrollDepth = 0;
+        window.addEventListener('scroll', function() {
+            const scrollDepth = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            if (scrollDepth > maxScrollDepth) {
+                maxScrollDepth = scrollDepth;
+                if (maxScrollDepth % 25 === 0) { // Track every 25%
+                    trackEvent('scroll_depth', { depth: maxScrollDepth });
+                }
+            }
+        });
+
+        console.log('🎉 Landing page loaded successfully! Ready to capture leads and drive engagement.');
+    </script>
+</body>
+</html>
