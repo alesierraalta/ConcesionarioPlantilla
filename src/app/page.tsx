@@ -39,7 +39,7 @@ import { ScrollReveal, StaggerContainer, StaggerItem, ScrollProgress, Magnetic }
 import { TestimonialsSection } from '@/components/TestimonialsSection'
 import { ProbabilityCalculator } from '@/components/ProbabilityCalculator'
 import { PrizeCalendar } from '@/components/PrizeCalendar'
-import { ThemeToggle } from '@/components/ThemeToggle'
+
 import { SocialMediaSection } from '@/components/SocialMediaSection'
 
 
@@ -678,8 +678,7 @@ export default function HomePage() {
 
 
 
-      {/* Theme Toggle */}
-      <ThemeToggle />
+
     </main>
   )
 }

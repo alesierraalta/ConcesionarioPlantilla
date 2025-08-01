@@ -44,8 +44,8 @@ export function Header({ onOpenRegistration }: HeaderProps) {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           isScrolled 
-            ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-medium' 
-            : 'bg-white dark:bg-gray-900 shadow-soft'
+            ? 'bg-white/95 backdrop-blur-md shadow-medium' 
+            : 'bg-white shadow-soft'
         )}
       >
         <div className="container-custom">

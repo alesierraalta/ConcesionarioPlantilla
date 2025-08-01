@@ -31,7 +31,7 @@ export function NewHero({ onOpenRegistration }: NewHeroProps) {
   }
 
   return (
-    <section ref={containerRef} className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-primary-900 to-slate-900 dark:from-black dark:via-primary-950 dark:to-black overflow-hidden pt-24 pb-16">
+    <section ref={containerRef} className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-primary-900 to-slate-900 overflow-hidden pt-24 pb-16">
       {/* Particle Background */}
       <ParticleBackground particleCount={60} className="opacity-20" />
 
